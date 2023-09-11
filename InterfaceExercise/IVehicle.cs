@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace InterfaceExercise
 {
-    internal interface IVehicle
+    internal interface IVehicle : ICompany
     {
         public int    NbrWheels        { get; set; }
         public int    CargoCapacityLbs { get; set; }

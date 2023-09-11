@@ -49,24 +49,44 @@ namespace InterfaceExercise
 
             Console.WriteLine($"Car: {car1}");
 
-            //List<IVehicle> transportList = new List<IVehicle>();
-            //transportList.Add(car1);
-            //transportList.Add(suv1);
-            //transportList.Add(trk1);
+            List<IVehicle> transportList = new List<IVehicle>() { car1, suv1, trk1 };
+            List<ICompany> companyList   = new List<ICompany>() { car1, suv1, trk1 };
 
-            //List<Car> carList = new List<Car>();
-            //carList.Add(car1);
-            //List<SUV> suvList = new List<SUV>();
-            //suvList.Add(suv1);
-            //List<Truck> trkList = new List<Truck>();
-            //trkList.Add(trk1);
+            foreach (IVehicle transportMode in transportList)
+            {
+                Console.WriteLine($"Capacity    {transportMode.CargoCapacityLbs}");
+                Console.WriteLine($"NbrWheeels  {transportMode.NbrWheels}");
+                Console.WriteLine($"Off Road    {transportMode.OffRoadCapable}");
+                Console.WriteLine($"Description {transportMode.Description}");
+                Console.WriteLine($"Description {transportMode.StockPrice}");
+            }
+
+            foreach (ICompany biz in companyList)
+            {
+                Console.WriteLine($"Stock Price     {biz.StockPrice}");
+                Console.WriteLine($"Stock Symbol    {biz.StockSymbol}");
+            }
 
 
             Car.DisplayCar(car1);
             SUV.DisplaySUV(suv1);
             Truck.DisplayTruck(trk1);
 
+            DisplayStuff(transportList);
 
+        }//Main Method
+
+        public static void DisplayStuff(List<IVehicle> transportList)
+        {
+            foreach (IVehicle transportMode in transportList)
+            {
+                Console.WriteLine($"Capacity    {transportMode.CargoCapacityLbs}");
+                Console.WriteLine($"NbrWheeels  {transportMode.NbrWheels}");
+                Console.WriteLine($"Off Road    {transportMode.OffRoadCapable}");
+                Console.WriteLine($"Description {transportMode.Description}");
+            }
         }
-    }
-}
+
+
+    }//class
+}//Namespace
